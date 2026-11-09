@@ -1265,6 +1265,36 @@ transform:none;
 .cursor-glow{display:none;}
 }
 
+
+
+.selected-project-notice {
+    padding: 18px 20px;
+    margin-bottom: 22px;
+    border: 1px solid var(--accent, #398bff);
+    border-radius: 16px;
+    background: rgba(57, 139, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.selected-project-notice span {
+    color: var(--accent, #398bff);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.selected-project-notice strong {
+    color: var(--text, #ffffff);
+    font-size: 19px;
+}
+
+.selected-project-notice p {
+    color: var(--muted, #a0a8b8);
+    font-size: 13px;
+    margin: 0;
+}
 </style>
 </head>
 
@@ -2207,6 +2237,58 @@ const response = await fetch("https://formsubmit.co/ajax/sherdilejaz2009@gmail.c
         submitButton.innerHTML = originalButton;
 
     }
+
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // URL se project ka naam lena
+    const params = new URLSearchParams(window.location.search);
+    const projectName = params.get("project");
+
+    if (!projectName) return;
+
+    // Contact form find karna
+    const contactForm = document.querySelector("form");
+
+    if (!contactForm) return;
+
+    // Existing project field check karna
+    let projectField = contactForm.querySelector(
+        '[name="project_name"], [name="project"]'
+    );
+
+    // Agar field nahi hai to hidden field create karna
+    if (!projectField) {
+        projectField = document.createElement("input");
+        projectField.type = "hidden";
+        projectField.name = "project_name";
+        contactForm.appendChild(projectField);
+    }
+
+    // Project name automatically fill karna
+    projectField.value = projectName;
+
+    // Optional: Contact page par project selection notice
+    const notice = document.createElement("div");
+
+    notice.className = "selected-project-notice";
+    notice.innerHTML = `
+        <span>PROJECT SELECTED</span>
+        <strong>${projectName.replace(/[&<>"']/g, function(char) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            }[char];
+        })}</strong>
+        <p>Your inquiry will be connected with this project.</p>
+    `;
+
+    contactForm.prepend(notice);
 
 });
 </script>

@@ -16,6 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<title>Sherdil Ejaz | Web Designer</title>
+<meta name="theme-color" content="#080b12">
+
 <style>
 /* =====================================================
    01. GLOBAL DESIGN SYSTEM
@@ -1710,6 +1715,835 @@ body.light .cursor-glow {
         transform:none;
     }
 }
+
+
+
+
+
+/* =====================================================
+   SHERDIL EJAZ — ABOUT PAGE
+   RESPONSIVE SYSTEM — PROJECTS PAGE STYLE
+   Paste before </style>
+===================================================== */
+
+/* GLOBAL RESPONSIVE SAFETY */
+html {
+    width:100%;
+    max-width:100%;
+    overflow-x:clip;
+}
+
+body {
+    width:100%;
+    max-width:100%;
+    overflow-x:clip;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing:border-box;
+}
+
+img,
+video,
+iframe {
+    max-width:100%;
+}
+
+.container,
+.section,
+.about-hero,
+.hero-grid,
+.intro-grid,
+.details-grid,
+.education-wrap,
+.journey-grid,
+.mindset-panel,
+.vision-grid,
+.principles-grid,
+.footer-top,
+.footer-bottom {
+    min-width:0;
+}
+
+h1,h2,h3,p,a,span {
+    overflow-wrap:break-word;
+}
+
+button,
+.btn {
+    max-width:100%;
+}
+
+/* =====================================================
+   LAPTOPS — 1100px
+===================================================== */
+
+@media(max-width:1100px) {
+
+    .container {
+        width:90%;
+    }
+
+    .hero-grid {
+        gap:38px;
+    }
+
+    .hero-title {
+        font-size:clamp(48px,6vw,68px);
+    }
+
+    .intro-grid {
+        gap:40px;
+    }
+
+    .education-wrap {
+        gap:35px;
+    }
+
+    .mindset-panel {
+        gap:35px;
+        padding:42px;
+    }
+
+    .nav-links {
+        gap:15px;
+    }
+
+    .nav-links a {
+        font-size:11px;
+    }
+
+    .details-grid,
+    .journey-grid {
+        gap:15px;
+    }
+
+}
+
+/* =====================================================
+   TABLETS — 850px
+===================================================== */
+
+@media(max-width:850px) {
+
+    .site-header {
+        top:12px;
+        padding:0 3%;
+    }
+
+    .navbar {
+        min-height:65px;
+        padding:0 14px;
+        gap:10px;
+    }
+
+    .menu-toggle {
+        display:grid;
+    }
+
+    /* Projects page style mobile navigation */
+    .nav-links {
+        position:absolute;
+        top:calc(100% + 10px);
+        left:0;
+        right:0;
+
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+
+        padding:10px;
+
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:20px;
+        box-shadow:var(--shadow);
+
+        max-height:calc(100dvh - 110px);
+        overflow-y:auto;
+        overscroll-behavior:contain;
+
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transform:translateY(-10px);
+
+        transition:
+            opacity .25s ease,
+            transform .25s ease,
+            visibility .25s ease;
+
+        z-index:1001;
+    }
+
+    .nav-links.open {
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+        transform:translateY(0);
+    }
+
+    .nav-links li {
+        width:100%;
+    }
+
+    .nav-links a {
+        display:block;
+        width:100%;
+        padding:14px;
+        font-size:13px;
+        border-radius:10px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background:var(--card);
+    }
+
+    .nav-links a.active::after {
+        display:none;
+    }
+
+    /* Hero */
+    .about-hero {
+        min-height:auto;
+        padding:155px 0 100px;
+    }
+
+    .hero-grid {
+        grid-template-columns:1fr;
+        gap:35px;
+        text-align:center;
+    }
+
+    .hero-copy {
+        order:1;
+    }
+
+    .hero-visual {
+        order:2;
+        min-height:450px;
+    }
+
+    .hero-label {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-title {
+        font-size:clamp(46px,8vw,68px);
+        letter-spacing:-2.8px;
+    }
+
+    .hero-text {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons {
+        justify-content:center;
+    }
+
+    .portrait-frame {
+        width:min(330px,75%);
+        height:400px;
+    }
+
+    .note-one {
+        left:5%;
+    }
+
+    .note-two {
+        right:5%;
+    }
+
+    /* Main sections */
+    .intro-grid,
+    .education-wrap,
+    .mindset-panel {
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .intro-side {
+        position:static;
+    }
+
+    .details-grid,
+    .journey-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .vision-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .vision-arrow {
+        display:none;
+    }
+
+    .footer-top {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+/* =====================================================
+   SMALL TABLETS — 700px
+===================================================== */
+
+@media(max-width:700px) {
+
+    .section {
+        padding:75px 0;
+    }
+
+    .section-heading {
+        margin-bottom:32px;
+    }
+
+    .section-title {
+        font-size:clamp(34px,8vw,46px);
+        letter-spacing:-1.8px;
+    }
+
+    .section-description {
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    .hero-visual {
+        min-height:400px;
+    }
+
+    .portrait-frame {
+        width:280px;
+        max-width:75%;
+        height:365px;
+    }
+
+    .details-grid,
+    .journey-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:13px;
+    }
+
+    .detail-card,
+    .journey-card {
+        padding:21px;
+    }
+
+    .journey-card {
+        min-height:240px;
+    }
+
+    .mindset-panel {
+        padding:32px 25px;
+        border-radius:25px;
+    }
+
+    .principles-grid {
+        grid-template-columns:1fr;
+    }
+
+    .about-cta {
+        padding:50px 25px;
+    }
+
+}
+
+/* =====================================================
+   MOBILE — 600px
+===================================================== */
+
+@media(max-width:600px) {
+
+    .container {
+        width:90%;
+    }
+
+    .section {
+        padding:65px 0;
+    }
+
+    .section-title {
+        font-size:clamp(33px,8.5vw,43px);
+        letter-spacing:-1.6px;
+    }
+
+    .eyebrow {
+        font-size:10px;
+        letter-spacing:1.8px;
+    }
+
+    .about-hero {
+        padding:135px 0 85px;
+    }
+
+    .hero-grid {
+        gap:25px;
+    }
+
+    .hero-label {
+        font-size:10px;
+        padding:9px 12px;
+        letter-spacing:.3px;
+    }
+
+    .hero-title {
+        font-size:clamp(39px,10vw,49px);
+        letter-spacing:-2px;
+        line-height:1.08;
+    }
+
+    .hero-text {
+        font-size:13px;
+        line-height:1.85;
+    }
+
+    .hero-buttons {
+        flex-direction:column;
+        align-items:stretch;
+        width:100%;
+        max-width:340px;
+        margin:0 auto;
+    }
+
+    .hero-buttons .btn {
+        width:100%;
+        min-height:49px;
+    }
+
+    .hero-visual {
+        min-height:365px;
+        margin-top:10px;
+    }
+
+    .portrait-frame {
+        width:245px;
+        max-width:72%;
+        height:320px;
+        border-radius:140px 140px 28px 28px;
+    }
+
+    .portrait-frame::before {
+        border-radius:150px 150px 35px 35px;
+    }
+
+    .floating-note {
+        padding:10px 12px;
+        border-radius:12px;
+    }
+
+    .floating-note strong {
+        font-size:11px;
+    }
+
+    .floating-note span {
+        font-size:8px;
+    }
+
+    .note-one {
+        left:0;
+        top:48px;
+    }
+
+    .note-two {
+        right:0;
+        bottom:25px;
+    }
+
+    .hero-scroll {
+        bottom:20px;
+        font-size:8px;
+        letter-spacing:1.2px;
+        gap:8px;
+    }
+
+    .scroll-line {
+        width:24px;
+    }
+
+    /* Story */
+    .intro-content p {
+        font-size:14px;
+        line-height:1.9;
+    }
+
+    .intro-highlight {
+        padding:20px;
+        font-size:17px;
+    }
+
+    /* Cards */
+    .details-grid,
+    .journey-grid,
+    .vision-grid {
+        grid-template-columns:1fr;
+    }
+
+    .detail-card {
+        padding:23px;
+    }
+
+    .journey-card {
+        min-height:auto;
+        padding:24px;
+    }
+
+    .journey-number {
+        margin-bottom:18px;
+    }
+
+    /* Education */
+    .education-list {
+        padding-left:27px;
+    }
+
+    .education-item {
+        padding-left:20px;
+    }
+
+    .education-item h3 {
+        font-size:20px;
+    }
+
+    .education-item p {
+        font-size:13px;
+    }
+
+    /* Mindset */
+    .mindset-panel {
+        padding:25px 18px;
+        border-radius:22px;
+    }
+
+    .mindset-panel h3 {
+        font-size:27px;
+    }
+
+    .mindset-panel p {
+        font-size:13px;
+    }
+
+    .mindset-point {
+        padding:14px;
+        gap:11px;
+    }
+
+    .mindset-point span {
+        font-size:12px;
+    }
+
+    /* Principles */
+    .principle {
+        padding:19px;
+        gap:14px;
+    }
+
+    /* CTA */
+    .about-cta {
+        padding:42px 17px;
+        border-radius:23px;
+    }
+
+    .about-cta h2 {
+        font-size:clamp(30px,8vw,38px);
+        letter-spacing:-1.2px;
+    }
+
+    .about-cta p {
+        font-size:13px;
+    }
+
+    .about-cta .btn {
+        width:100%;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top:60px;
+    }
+
+    .footer-links {
+        gap:13px 17px;
+    }
+
+    .footer-bottom {
+        flex-direction:column;
+        gap:10px;
+        line-height:1.8;
+    }
+
+}
+
+/* =====================================================
+   SMALL PHONES — 390px
+===================================================== */
+
+@media(max-width:390px) {
+
+    .site-header {
+        top:9px;
+        padding:0 3%;
+    }
+
+    .navbar {
+        min-height:60px;
+        padding:0 10px;
+        border-radius:17px;
+        gap:7px;
+    }
+
+    .site-header.scrolled .navbar {
+        min-height:58px;
+    }
+
+    .logo {
+        font-size:13px;
+        gap:8px;
+    }
+
+    .logo-mark {
+        width:34px;
+        height:34px;
+        border-radius:11px;
+        font-size:12px;
+    }
+
+    .logo small {
+        font-size:7px;
+        letter-spacing:1px;
+    }
+
+    .nav-actions {
+        gap:5px;
+    }
+
+    .nav-control {
+        width:34px;
+        height:34px;
+        border-radius:10px;
+        font-size:12px;
+    }
+
+    .about-hero {
+        padding-top:130px;
+    }
+
+    .hero-title {
+        font-size:39px;
+        letter-spacing:-2px;
+    }
+
+    .hero-visual {
+        min-height:340px;
+    }
+
+    .portrait-frame {
+        width:225px;
+        height:300px;
+        max-width:72%;
+    }
+
+    .note-one {
+        left:-3px;
+    }
+
+    .note-two {
+        right:-3px;
+    }
+
+    .floating-note {
+        padding:9px 10px;
+    }
+
+    .floating-note strong {
+        font-size:10px;
+    }
+
+    .floating-note span {
+        font-size:7px;
+    }
+
+    .section-title {
+        font-size:33px;
+    }
+
+    .mindset-panel h3 {
+        font-size:25px;
+    }
+
+    .about-cta h2 {
+        font-size:30px;
+    }
+
+}
+
+/* =====================================================
+   EXTRA SMALL PHONES — 340px
+===================================================== */
+
+@media(max-width:340px) {
+
+    .container {
+        width:92%;
+    }
+
+    .navbar {
+        padding:0 7px;
+        gap:5px;
+    }
+
+    .logo {
+        font-size:11px;
+        gap:6px;
+    }
+
+    .logo-mark {
+        width:30px;
+        height:30px;
+        font-size:11px;
+    }
+
+    .logo small {
+        font-size:6px;
+    }
+
+    .nav-actions {
+        gap:4px;
+    }
+
+    .nav-control {
+        width:31px;
+        height:31px;
+    }
+
+    .hero-title {
+        font-size:35px;
+    }
+
+    .hero-label {
+        font-size:9px;
+    }
+
+    .portrait-frame {
+        width:210px;
+        height:280px;
+    }
+
+    .floating-note {
+        padding:8px;
+    }
+
+    .floating-note strong {
+        font-size:9px;
+    }
+
+    .section-title {
+        font-size:30px;
+    }
+
+    .detail-card,
+    .journey-card {
+        padding:19px;
+    }
+
+    .mindset-panel {
+        padding:22px 15px;
+    }
+
+    .mindset-panel h3 {
+        font-size:23px;
+    }
+
+    .about-cta {
+        padding:35px 15px;
+    }
+
+    .about-cta h2 {
+        font-size:27px;
+    }
+
+}
+
+/* =====================================================
+   LANDSCAPE MOBILE
+===================================================== */
+
+@media(max-height:500px) and (orientation:landscape) {
+
+    .about-hero {
+        min-height:auto;
+        padding:115px 0 65px;
+    }
+
+    .hero-visual {
+        min-height:300px;
+    }
+
+    .portrait-frame {
+        height:260px;
+        width:200px;
+    }
+
+    .hero-scroll {
+        display:none;
+    }
+
+    .nav-links {
+        max-height:calc(100dvh - 90px);
+    }
+
+}
+
+/* =====================================================
+   TOUCH DEVICES
+===================================================== */
+
+@media(hover:none),(pointer:coarse) {
+
+    .cursor-glow {
+        display:none !important;
+    }
+
+    .detail-card:hover,
+    .journey-card:hover,
+    .vision-card:hover,
+    .principle:hover {
+        transform:none;
+    }
+
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity:1;
+        transform:none;
+    }
+
+}
+
 </style>
 </head>
 
@@ -2810,4 +3644,3 @@ if (finePointer.matches) {
 
 </body>
 </html>
-
